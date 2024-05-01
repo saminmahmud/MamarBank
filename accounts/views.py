@@ -29,6 +29,7 @@ class UserLogoutView(LogoutView):
     def get_success_url(self):
         if self.request.user.is_authenticated:
             logout(self.request)
+            redirect('home')
         return reverse_lazy('home')
 
 
